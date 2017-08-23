@@ -6,7 +6,7 @@ Hurdles:
 
 - Symbols
 - Optimization
-- 
+- Namespaces
 
 ## Getting Symbols
 
@@ -20,10 +20,25 @@ Hurdles:
 
 - dbgsym package in Ubuntu
 
+   Ubuntu also has symbols packages available for some releases.  These 
+   will get you the symbols for the non-debug builds of the python 
+   interpreter, but won't turn off optimization.
+   
+- Local build
+
+   This is always available to get you a debug build of just your 
+   extension. You don't get the same visibility into the python 
+   interpreter, but it does give you a package that you can install 
+   anywhere you would normally install.
+
 ## GDB Extensions
+
+- There are extensions for gdb since version 6 that allow for native views of python objects from within gdb.  It's not necessary, but its quite convenient. 
+- Not turned on by default in ubuntu.  Fedora?
+
 ## Digging in
 ## Platform Variations
-
+## pdb vs gdb
 
 ## Other tools
 ### LLDB
