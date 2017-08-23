@@ -2,8 +2,16 @@
 
 ## Why
 
+Python is a nice, safe language that has ways of adding extensions
+that behave badly. So sometimes we need to dig into the extensions as
+it's running and see what's really happening under the hood.
+
+This is aimed at people who have a decent understanding of python, and
+a little bit of an understanding of C and how to use it.
+
 Hurdles:
 
+- Python land vs. C land.
 - Symbols
 - Optimization
 - Namespaces
@@ -31,10 +39,17 @@ Hurdles:
    interpreter, but it does give you a package that you can install 
    anywhere you would normally install.
 
+   `CFLAGS='-g -O0' python setup.py build_ext install`
+
+   (or, in my favorite project, `make debug`. Makefiles are good.)
+
 ## GDB Extensions
 
-- There are extensions for gdb since version 6 that allow for native views of python objects from within gdb.  It's not necessary, but its quite convenient. 
-- Not turned on by default in ubuntu.  Fedora?
+There are extensions for gdb since version 6 that allow for native
+views of python objects from within gdb.  It's not necessary, but its
+quite convenient.
+
+Not turned on by default in ubuntu.  Fedora?
 
 ## Digging in
 ## Platform Variations
