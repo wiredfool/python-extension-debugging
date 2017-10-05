@@ -2,12 +2,18 @@
 
 ## Why
 
-Python is a nice, safe language that has ways of adding extensions
-that behave badly. So sometimes we need to dig into the extensions as
-it's running and see what's really happening under the hood.
+Python is a nice, safe language which can run extensions that behave
+badly, causing interpreter crashes, memory corruption, or memory
+leaks. Sometimes we need to dig into an extension as it's running
+and see what's really happening under the hood. This talk will cover
+an introduction to working with Python C-API extensions in gdb: setting up
+your gdb environment, common C-level bugs that can be found, and some
+of the challenges of using gdb in a dockerized system.
 
-This is aimed at people who have a decent understanding of python, and
-a little bit of an understanding of C and how to use it.
+The talk is aimed at people who have a decent understanding of python,
+and a little bit of an understanding of C and how to use it. By the
+end of the talk, attendees should be able to isolate a crashing bug in
+an extension.
 
 Hurdles:
 
@@ -19,7 +25,7 @@ Hurdles:
 
 ## Getting Symbols
 
-- python[3]-dbg package in Ubuntu 
+- python[2|3]-dbg package in Ubuntu 
 
    This is a debug build of python and it's libraries. There are
    additional checks that are done at the interpreter level and any
@@ -32,7 +38,7 @@ Hurdles:
 
 - dbgsym package in Ubuntu
 
-   Ubuntu also has symbols packages available for some releases.  These 
+   Ubuntu also has symbols packages available for some releases.  These
    will get you the symbols for the non-debug builds of the python 
    interpreter, but won't turn off optimization. There are warnings
    that they don't interoperate well with the `-dbg` packages, so
@@ -217,6 +223,10 @@ python directories. This is enabled by copying into your `.gdbinit`
 ### Small Test Case
 ### Segfault
 ### Not so small test case
+### Power tools
+ * break on next line of python
+ * break before return to python
+ * break on return from C function
 
 ## Namespaces
 
